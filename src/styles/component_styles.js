@@ -40,52 +40,50 @@ const category_item = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  itemText : {
-      fontWeight:"700",
-      textTransform:"uppercase",
-      fontSize:17,
-      fontFamily:"notoserif",
-      letterSpacing:2
-  }
+  itemText: {
+    fontWeight: '700',
+    textTransform: 'uppercase',
+    fontSize: 17,
+    fontFamily: 'notoserif',
+    letterSpacing: 2,
+  },
 });
 
 const meal_item = StyleSheet.create({
-
-  container : {
-    width:WIDTH *0.8,
-    marginVertical:50,
-    margin:10,
+  container: {
+    width: WIDTH * 0.8,
+    marginVertical: 50,
+    margin: 10,
   },
-  imageContainer : {
-    position:"relative",
-    alignItems:"center"
+  imageContainer: {
+    position: 'relative',
+    alignItems: 'center',
   },
-  image : {
-    width:WIDTH *0.8,
-    height:HEIGHT * 0.6,
-    borderTopRightRadius:10,
-    borderTopLeftRadius:10,
-    
+  image: {
+    width: WIDTH * 0.8,
+    height: HEIGHT * 0.6,
+    borderTopRightRadius: 10,
+    borderTopLeftRadius: 10,
   },
-  footerContainer : {
-    flex:1,
-    paddingVertical:50,
-    backgroundColor:"white",
-    justifyContent:"center",
-    alignItems:"center",
-    borderBottomLeftRadius:10,
-    borderBottomRightRadius:10,
-    padding:20
+  footerContainer: {
+    flex: 1,
+    paddingVertical: 50,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
+    padding: 20,
   },
-  mealText : {
-    fontSize:20,
-    fontWeight:"bold",
-    textAlign:"center"
+  mealText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   icon: {
-    position:"absolute",
-    bottom:10,
-  }
-})
+    position: 'absolute',
+    bottom: 10,
+  },
+});
 
-export {category_item,meal_item};
+export {category_item, meal_item};

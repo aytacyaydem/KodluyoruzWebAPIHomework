@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
-import {View, Text, FlatList,Dimensions} from 'react-native';
+import {View, Text, FlatList, Dimensions} from 'react-native';
 import axios from 'axios';
 //Styles
-import {main_styles} from "../styles/page_styles"
+import {main_styles} from '../styles/page_styles';
 //Components
-import {CategoryItem} from "../components"
+import {CategoryItem} from '../components';
 
 const API_URL = 'https://www.themealdb.com/api/json/v1/1/categories.php';
-const HEIGHT = Dimensions.get("window").height
+const HEIGHT = Dimensions.get('window').height;
 
 function Main() {
   const [categories, setCategories] = useState(null);
@@ -17,7 +17,7 @@ function Main() {
   }
 
   function renderItem({item}) {
-    return <CategoryItem data={item}/>
+    return <CategoryItem data={item} />;
   }
   React.useEffect(() => {
     fetchData();
@@ -33,7 +33,6 @@ function Main() {
         showsVerticalScrollIndicator={false}
         snapToInterval={HEIGHT / 4}
         decelerationRate="fast"
-        
       />
     </View>
   );

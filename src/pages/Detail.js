@@ -1,50 +1,60 @@
-import React from 'react'
-import { View, Text,Image,ScrollView,Linking} from 'react-native'
-import axios from "axios"
-import {detail_styles} from "../styles/page_styles"
-import { TouchableOpacity } from 'react-native-gesture-handler'
+import React from 'react';
+import {View, Text, Image, ScrollView, Linking} from 'react-native';
+import axios from 'axios';
+import {detail_styles} from '../styles/page_styles';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
-const API_URL = "https://www.themealdb.com/api/json/v1/1/lookup.php?i="
+const API_URL = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=';
 
 const Detail = ({route}) => {
-    const {id} = route.params
-    const [meal,setMeal] = React.useState({})
-    async function fetchOneMealWithId(){
-        const response = await axios.get(`${API_URL}${id}`)
-        setMeal(response.data.meals[0])
-    }
-    async function openURL(){
-        await Linking.openURL(meal.strYoutube)
-    }
+  const {id} = route.params;
+  const [meal, setMeal] = React.useState({});
+  async function fetchOneMealWithId() {
+    const response = await axios.get(`${API_URL}${id}`);
+    setMeal(response.data.meals[0]);
+  }
+  async function openURL() {
+    await Linking.openURL(meal.strYoutube);
+  }
 
-    React.useEffect(() => {
-        fetchOneMealWithId()
-    },[])
-    return (
-        <ScrollView style={detail_styles.container} showsVerticalScrollIndicator={false}>
-            <View style={detail_styles.imageContainer}>
-                <Image source={{uri:meal.strMealThumb}} style={detail_styles.headerImage}/>
-            </View>
-            <View style={detail_styles.info}>
-                <Text style={detail_styles.headerText}>{meal.strMeal}</Text>
-                <View style={detail_styles.headerAltContainer}>
-                <Text style={detail_styles.categoryText}>Category: {meal.strCategory}</Text>
-                <Text style={detail_styles.categoryText}>Area: {meal.strArea}</Text>
-                </View>
-                <Text style={detail_styles.tags}>{meal?.strTags?.split(",").map(tag => `#${tag.toLowerCase()} `)}</Text>
-            </View>
-            <View style={detail_styles.description}>
-                <Text style={detail_styles.descriptionText}>{meal.strInstructions}</Text>
-                <TouchableOpacity onPress={openURL}>
-                    <Text style={detail_styles.link}>Go To Youtube!</Text>
-                </TouchableOpacity>
-            </View>
-        </ScrollView>
-    )
-}
+  React.useEffect(() => {
+    fetchOneMealWithId();
+  }, []);
+  return (
+    <ScrollView
+      style={detail_styles.container}
+      showsVerticalScrollIndicator={false}>
+      <View style={detail_styles.imageContainer}>
+        <Image
+          source={{uri: meal.strMealThumb}}
+          style={detail_styles.headerImage}
+        />
+      </View>
+      <View style={detail_styles.info}>
+        <Text style={detail_styles.headerText}>{meal.strMeal}</Text>
+        <View style={detail_styles.headerAltContainer}>
+          <Text style={detail_styles.categoryText}>
+            Category: {meal.strCategory}
+          </Text>
+          <Text style={detail_styles.categoryText}>Area: {meal.strArea}</Text>
+        </View>
+        <Text style={detail_styles.tags}>
+          {meal?.strTags?.split(',').map((tag) => `#${tag.toLowerCase()} `)}
+        </Text>
+      </View>
+      <View style={detail_styles.description}>
+        <Text style={detail_styles.descriptionText}>
+          {meal.strInstructions}
+        </Text>
+        <TouchableOpacity onPress={openURL}>
+          <Text style={detail_styles.link}>Go To Youtube!</Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
+  );
+};
 
-export {Detail}
-
+export {Detail};
 
 /*
 "idMeal": "52772",

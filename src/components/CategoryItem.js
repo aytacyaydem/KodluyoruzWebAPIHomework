@@ -1,8 +1,8 @@
-import React from 'react'
-import { View, Text, TouchableOpacity,Image} from 'react-native'
+import React from 'react';
+import {View, Text, TouchableOpacity, Image} from 'react-native';
 //Styles
-import {category_item} from "../styles/component_styles"
-import {useNavigation} from "@react-navigation/native"
+import {category_item} from '../styles/component_styles';
+import {useNavigation} from '@react-navigation/native';
 
 /*{
 "idCategory": "1",
@@ -13,18 +13,25 @@ import {useNavigation} from "@react-navigation/native"
 */
 
 function CategoryItem({data}) {
-    const navigation = useNavigation();
-    return (
-        <TouchableOpacity style={category_item.container} onPress={() => navigation.navigate("List",{categoryName:data.strCategory})}>
-            <View style={category_item.imageContainer}>
-            <Image source={{uri:data.strCategoryThumb}} resizeMode="contain" style={category_item.image} />
-            </View>
-            <View style={category_item.footer}>
-                <Text style={category_item.itemText}>{data.strCategory}</Text>
-            </View>
-            
-        </TouchableOpacity>
-    )
+  const navigation = useNavigation();
+  return (
+    <TouchableOpacity
+      style={category_item.container}
+      onPress={() =>
+        navigation.navigate('List', {categoryName: data.strCategory})
+      }>
+      <View style={category_item.imageContainer}>
+        <Image
+          source={{uri: data.strCategoryThumb}}
+          resizeMode="contain"
+          style={category_item.image}
+        />
+      </View>
+      <View style={category_item.footer}>
+        <Text style={category_item.itemText}>{data.strCategory}</Text>
+      </View>
+    </TouchableOpacity>
+  );
 }
 
-export {CategoryItem}
+export {CategoryItem};

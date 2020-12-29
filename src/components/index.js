@@ -1,2 +1,2 @@
-export * from "./CategoryItem"
-export * from "./MealItem"
+export * from './CategoryItem';
+export * from './MealItem';

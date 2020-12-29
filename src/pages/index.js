@@ -1,3 +1,3 @@
-export * from "./Detail"
-export * from "./List"
-export * from "./Main"
+export * from './Detail';
+export * from './List';
+export * from './Main';
