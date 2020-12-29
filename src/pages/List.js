@@ -13,7 +13,7 @@ function List({route}) {
   const [meals, setMeals] = React.useState(null);
   async function fetchMealsWithCategoryName() {
     const response = await axios.get(`${API_URL}${categoryName}`);
-    await setMeals(response.data.meals);
+    setMeals(response.data.meals);
   }
 
   function renderItem({item}) {
